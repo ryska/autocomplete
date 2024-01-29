@@ -1,24 +1,29 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import { useState } from "react";
+import "./App.scss";
+import AutoComplete from "./Autocomplete";
+import { useFetchBooks } from "./hooks/useFetchBooks";
 
 function App() {
+  const [results, setResults] = useState<string[]>([]);
+  const { books, loading } = useFetchBooks();
+
+  const handleAutocompleteResults = (value: string) => {
+    setResults((prev) => [...prev, value]);
+  }
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <h3>Select books to read:</h3>
+      <ul>
+        {results.map((result, idx) => (
+          <li key={idx}>{result}</li>
+        ))}
+      </ul>
+      <AutoComplete
+        data={books}
+        loading={loading}
+        onSelect={handleAutocompleteResults}
+      />
     </div>
   );
 }
