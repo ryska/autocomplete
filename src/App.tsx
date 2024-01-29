@@ -5,7 +5,7 @@ import { useFetchBooks } from "./hooks/useFetchBooks";
 
 function App() {
   const [results, setResults] = useState<string[]>([]);
-  const { books, loading } = useFetchBooks();
+  const { books, loading, error } = useFetchBooks();
 
   const handleAutocompleteResults = (value: string) => {
     setResults((prev) => [...prev, value]);
@@ -22,6 +22,7 @@ function App() {
       <AutoComplete
         data={books}
         loading={loading}
+        error={error?.message}
         onSelect={handleAutocompleteResults}
       />
     </div>

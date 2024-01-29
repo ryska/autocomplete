@@ -1,16 +1,19 @@
-import { useState, ChangeEvent } from "react";
+import React, { useState, ChangeEvent } from "react";
 import "./Autocomplete.scss";
 import { useFilterData } from "./hooks/useFilterData";
 
 interface AutoCompleteProps<T> {
   data: T[];
   loading: boolean;
+  error?: string;
   onSelect: (value: string) => void;
 }
+
 const AutoComplete = <T extends { title: string; id: number }>({
   onSelect,
   data,
   loading,
+  error,
 }: AutoCompleteProps<T>) => {
   const [inputValue, setInputValue] = useState<string>("");
   const filteredData = useFilterData(data, inputValue);
@@ -34,6 +37,8 @@ const AutoComplete = <T extends { title: string; id: number }>({
       />
       {loading ? (
         <p>Loading...</p>
+      ) : error ? (
+        <p>{error}</p>
       ) : (
         !!inputValue.length &&
         !!filteredData.length && (

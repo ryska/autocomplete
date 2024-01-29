@@ -34,28 +34,28 @@
       border-color: gray;
     }
   }
-}
-.autocomplete-list {
-  margin-top: 4px;
-  list-style-type: none;
-  width: 100%;
-  padding: 0;
-  border-radius: 4px;
-  border: 1px solid lightgray;
-  display: block;
-}
-.autocomplete-list-item {
-  font-size: 14px;
-  cursor: pointer;
-  padding: 10px;
-  display: block;
-  border-bottom: 1px solid gainsboro;
-
-  &:last-of-type {
-    border-bottom: 0;
+  .autocomplete-list {
+    margin-top: 4px;
+    list-style-type: none;
+    width: 100%;
+    padding: 0;
+    border-radius: 4px;
+    border: 1px solid lightgray;
+    display: block;
   }
-
-  &:hover {
-    background-color: gainsboro;
+  .autocomplete-list-item {
+    font-size: 14px;
+    cursor: pointer;
+    padding: 10px;
+    display: block;
+    border-bottom: 1px solid gainsboro;
+  
+    &:last-of-type {
+      border-bottom: 0;
+    }
+  
+    &:hover {
+      background-color: gainsboro;
+    }
   }
 }
