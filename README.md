@@ -9,6 +9,8 @@ You can pass any data to the component, just make sure it is a list of objects w
 Data is in books.json file in /public folder. 
 
 In the project directory, you can run:
+`npm i`
+
 `npm start`
 
 Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
